@@ -14,10 +14,10 @@ export const Cell = ({cell}:ICellProps) => {
     imogi = "💀";
   } else if(cell.status === EStatus.LIFE){
     color = styles.bg__LIFE;
-    imogi = '💥'
+    imogi = '🐣'
   } else {
     color = styles.bg__LIVE;
-    imogi = '🐣'
+    imogi = '💥'
   }
 
   return (

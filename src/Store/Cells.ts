@@ -53,6 +53,7 @@ const LIFE_CELL: LIFE = {
 class Cells {
 
   listCells: typeCell[] = [];
+  isTwice = 0;
 
   constructor(){
     makeAutoObservable(this)
@@ -62,8 +63,21 @@ class Cells {
     const random = Math.random();
     if(random>0.5){
       this.listCells.push(LIVE_CELL)
+      this.isTwice++;
     } else {
       this.listCells.push(DEATH_CELL)
+      this.isTwice = 0;
+    }
+
+    if(this.isTwice === 2){
+      let isFirst = true;
+      this.listCells = this.listCells.map(item=>{
+        if (item.status === EStatus.LIVE && isFirst) {
+          isFirst = false;
+          return LIFE_CELL;
+        }
+        return item;
+      })
     }
   }
 }
