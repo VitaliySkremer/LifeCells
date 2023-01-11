@@ -1,0 +1,65 @@
+.cell {
+  width: 100%;
+  background-color: white;
+  border-radius: 10px;
+  border: 1px solid black;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+
+  &:not(:last-child){
+    margin-bottom: 10px;
+  }
+
+  animation: anim .2s 1 ease;
+}
+
+@keyframes anim {
+  from{
+    transform: translateY(100px);
+    opacity: 0;
+  }
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+.img {
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  margin-right: 16px;
+  border-radius: 50%;
+}
+
+.bg__DEATH {
+  background: linear-gradient(180deg, #0D658A 0%, #B0FFB4 100%);
+}
+
+.bg__LIVE {
+  background: linear-gradient(180deg, #FFB800 0%, #FFF7B0 100%);
+}
+
+.bg__LIFE {
+  background: linear-gradient(180deg, #AD00FF 0%, #FFB0E9 100%);
+}
+
+.status__wrapper {
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+.status {
+  font-weight: bold;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.some {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
