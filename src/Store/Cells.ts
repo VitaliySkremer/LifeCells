@@ -54,6 +54,7 @@ class Cells {
 
   listCells: typeCell[] = [];
   isTwice = 0;
+  isDeath = 0;
 
   constructor(){
     makeAutoObservable(this)
@@ -64,9 +65,11 @@ class Cells {
     if(random>0.5){
       this.listCells.push(LIVE_CELL)
       this.isTwice++;
+      this.isDeath = 0;
     } else {
       this.listCells.push(DEATH_CELL)
       this.isTwice = 0;
+      this.isDeath++;
     }
 
     if(this.isTwice === 2){
@@ -75,6 +78,17 @@ class Cells {
         if (item.status === EStatus.LIVE && isFirst) {
           isFirst = false;
           return LIFE_CELL;
+        }
+        return item;
+      })
+    }
+
+    if(this.isDeath === 3){
+      let isFirst = true;
+      this.listCells = this.listCells.map(item=>{
+        if (item.status === EStatus.LIFE && isFirst) {
+          isFirst = false;
+          return DEATH_CELL;
         }
         return item;
       })
